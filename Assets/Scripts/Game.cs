@@ -14,12 +14,14 @@ public class Game : MonoBehaviour
         GameManager.money += GameManager.multiplier;
     }
 
-    public void Buy(float num)
+    public void Buy()
     {
-        if(num == 1 && GameManager.money >= 25) 
+        Debug.Log(GameManager.Upgrade1);
+        if(GameManager.money >= GameManager.Upgrade1) 
         {
             GameManager.multiplier += 1;
-            GameManager.money -= 25;
+            GameManager.money -= GameManager.Upgrade1;
+            GameManager.Upgrade1 = GameManager.Upgrade1 + GameManager.Upgrade1;
         }
     }
 
