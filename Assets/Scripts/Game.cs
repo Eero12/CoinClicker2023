@@ -7,7 +7,8 @@ using TMPro;
 
 public class Game : MonoBehaviour
 {
-    public TextMeshProUGUI UI;
+    public TextMeshProUGUI MoneyCounter;
+    public TextMeshProUGUI Upgrade1Counter;
 
     public void Increment()
     {
@@ -21,12 +22,13 @@ public class Game : MonoBehaviour
         {
             GameManager.multiplier += 1;
             GameManager.money -= GameManager.Upgrade1;
-            GameManager.Upgrade1 = GameManager.Upgrade1 + GameManager.Upgrade1;
+            GameManager.Upgrade1 += 50;
         }
     }
 
     public void Update()
     {
-        UI.text = "Money: " + GameManager.money;
+        MoneyCounter.text = "Price: " + GameManager.Upgrade1;
+        Upgrade1Counter.text = "Money: " + GameManager.money;
     }
 }
