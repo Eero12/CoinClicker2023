@@ -13,7 +13,7 @@ public class Game : MonoBehaviour
 
     public void Increment()
     {
-        GameManager.randomnumber2 = Random.Range(GameManager.Range0, GameManager.range100);
+        GameManager.randomnumber2 = Random.Range(GameManager.Range0, GameManager.Range100);
         GameManager.randomnumber1 = Random.Range(GameManager.Range0, GameManager.Range100);
         if (GameManager.randomnumber1 == GameManager.randomnumber2)
         {
@@ -29,8 +29,8 @@ public class Game : MonoBehaviour
     {        
         Debug.Log("RandomNumber1: " + GameManager.randomnumber1);
         Debug.Log("RandomNumber2: " + GameManager.randomnumber2);
-        Debug.Log("Range is: " + GameManager.range100);
-        
+        Debug.Log("Range is: " + GameManager.Range100);
+        Debug.Log("Upgrade2 value: " + GameManager.Upgrade2Max);
     }
     public void BuyUpgrade1()
     {        
@@ -43,24 +43,31 @@ public class Game : MonoBehaviour
     }  public void BuyUpgrade2()
     {        
 
-        if(GameManager.money >= GameManager.Upgrade2) 
+        if(GameManager.money >= GameManager.Upgrade2 && !GameManager.Upgrade2Max) 
         {
             GameManager.Range100 -= 10;
-            GameManager.range100 -= 10;
             GameManager.money -= GameManager.Upgrade2;
             //GameManager.Upgrade2 += 50;
-            if (GameManager.range100 <= 0)
+            if (GameManager.Range100 <= 0)
             {
-                GameManager.range100 = 0;
                 GameManager.Range100 = 0;
+                GameManager.Upgrade2Max = true;
             }
         }
+
     }
 
     public void Update()
-    {
+    {     
+        if (GameManager.Upgrade2Max)
+        {
+            Upgrade2Counter.text = "Max";
+        }
+        if (!GameManager.Upgrade2Max)
+        {
+        Upgrade2Counter.text = ""+GameManager.Upgrade2;
+        }
         MoneyCounter.text = "Money: " + GameManager.money;
         Upgrade1Counter.text = ""+GameManager.Upgrade1;
-        Upgrade2Counter.text = ""+GameManager.Upgrade2;
     }
 }

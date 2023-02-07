@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static float Upgrade1;
     public static float Upgrade2;
+    public static bool Upgrade2Max;
     public static float money;
     public static float multiplier;
     public static float CritPercent;
@@ -13,9 +14,9 @@ public class GameManager : MonoBehaviour
     public static int randomnumber2;
     public static int Range0;
     public static int Range100;
-    public static int range100;
     void Start()
-    { 
+    {
+        Upgrade2Max = false;
         Upgrade1 = 25;
         Upgrade2 = 25;
         multiplier = 1;
@@ -23,7 +24,6 @@ public class GameManager : MonoBehaviour
         CritPercent = 100;
         Range0 = 0;
         Range100 = 100;
-        range100 = 100;
     }
 
 
