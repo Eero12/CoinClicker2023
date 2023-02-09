@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public static float CritPercent;
     public static int randomnumber1;
     public static int randomnumber2;
+    public static int CoinFlipRandomNumber1;
+    public static int CoinFlipRandomNumber2;
     public static int Range0;
     public static int Range100;
     public static float Clicks;
