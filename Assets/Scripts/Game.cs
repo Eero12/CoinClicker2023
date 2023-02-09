@@ -46,6 +46,24 @@ public class Game : MonoBehaviour
             GameManager.Upgrade1 += 50;
         }
     }
+    public void CoinFlip()
+    {
+        GameManager.CoinFlipRandomNumber1 = Random.Range(0, 2);
+        GameManager.CoinFlipRandomNumber2 = Random.Range(0, 2);
+        if (GameManager.CoinFlipRandomNumber1 == GameManager.CoinFlipRandomNumber2)
+        {
+            GameManager.money += GameManager.money;
+            Debug.Log(GameManager.CoinFlipRandomNumber2);
+            Debug.Log(GameManager.CoinFlipRandomNumber1);
+        }   
+        if (GameManager.CoinFlipRandomNumber1 != GameManager.CoinFlipRandomNumber2)
+        {
+            Debug.Log(GameManager.CoinFlipRandomNumber2);
+            Debug.Log(GameManager.CoinFlipRandomNumber1);
+            GameManager.money = 0;
+        }
+
+    }
     public void BuyUpgrade2()
     {        
 
