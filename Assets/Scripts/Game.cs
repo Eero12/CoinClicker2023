@@ -10,9 +10,13 @@ public class Game : MonoBehaviour
     public TextMeshProUGUI MoneyCounter;
     public TextMeshProUGUI Upgrade1Counter;
     public TextMeshProUGUI Upgrade2Counter;
+    public TextMeshProUGUI Upgrade3Counter;
+    public TextMeshProUGUI Clicks;
+    
 
     public void Increment()
     {
+        GameManager.Clicks += 1;
         GameManager.randomnumber2 = Random.Range(GameManager.Range0, GameManager.Range100);
         GameManager.randomnumber1 = Random.Range(GameManager.Range0, GameManager.Range100);
         if (GameManager.randomnumber1 == GameManager.randomnumber2)
@@ -22,6 +26,7 @@ public class Game : MonoBehaviour
         }
         else
         {
+            
             GameManager.money += GameManager.multiplier;
         }
     }
@@ -40,7 +45,8 @@ public class Game : MonoBehaviour
             GameManager.money -= GameManager.Upgrade1;
             GameManager.Upgrade1 += 50;
         }
-    }  public void BuyUpgrade2()
+    }
+    public void BuyUpgrade2()
     {        
 
         if(GameManager.money >= GameManager.Upgrade2 && !GameManager.Upgrade2Max) 
@@ -56,9 +62,18 @@ public class Game : MonoBehaviour
         }
 
     }
+    public void BuyUpgrade3()
+    {        
+        if(GameManager.money >= GameManager.Upgrade3 && GameManager.BoughtUpgrade3 == false) 
+        {
+            GameManager.money -= GameManager.Upgrade3;
+            GameManager.BoughtUpgrade3 = true;   
+        }
+    }  
 
     public void Update()
-    {     
+    {
+        GameManager.startTime = Time.time + 0.5f;
         if (GameManager.Upgrade2Max)
         {
             Upgrade2Counter.text = "Max";
@@ -67,6 +82,17 @@ public class Game : MonoBehaviour
         {
         Upgrade2Counter.text = ""+GameManager.Upgrade2;
         }
+        if (!GameManager.BoughtUpgrade3)
+        {
+            Upgrade3Counter.text = "" + GameManager.Upgrade3;
+
+        }
+        if (GameManager.BoughtUpgrade3)
+        {
+            Upgrade3Counter.text = "Max";
+            GameManager.money += GameManager.automultiplier;
+        }
+        Clicks.text = "Clicks " + GameManager.Clicks;
         MoneyCounter.text = "Money: " + GameManager.money;
         Upgrade1Counter.text = ""+GameManager.Upgrade1;
     }
