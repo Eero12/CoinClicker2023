@@ -31,7 +31,6 @@ public class Shop : MonoBehaviour
         if (GameManager.BoughtUpgrade3)
         {
             Upgrade3Counter.text = "Max";
-            GameManager.money += GameManager.automultiplier;
         }
         Upgrade1Counter.text = "" + GameManager.Upgrade1;
 

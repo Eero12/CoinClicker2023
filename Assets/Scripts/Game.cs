@@ -100,6 +100,10 @@ public class Game : MonoBehaviour
 
     public void Update()
     {
+        if (GameManager.BoughtUpgrade3)
+        {
+            GameManager.money += GameManager.automultiplier;
+        }
         GameManager.startTime = Time.time + 0.5f;
         Clicks.text = "Clicks " + GameManager.Clicks;
         MoneyCounter.text = "Money: " + GameManager.money;
