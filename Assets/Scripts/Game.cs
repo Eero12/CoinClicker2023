@@ -13,12 +13,14 @@ public class Game : MonoBehaviour
     public GameObject ShopCanvas;
     public TextMeshProUGUI Clicks;
     public AudioSource ClickSound;
+    public CriticalClick crit;
+    public GameObject critSpawn;
     private float LastAuto;
 
     public void Increment()
     {
         AudioSource newSource = Instantiate(ClickSound, transform);
-        newSource.Play();
+        newSource.Play();    
         Destroy(newSource.gameObject, 2f);
         GameManager.Clicks += 1;
         GameManager.randomnumber2 = Random.Range(GameManager.Range0, GameManager.Range100);
@@ -26,6 +28,7 @@ public class Game : MonoBehaviour
         if (GameManager.randomnumber1 == GameManager.randomnumber2)
         {
             GameManager.money += GameManager.multiplier * GameManager.CritPercent;
+            GenerateCritText();
             Debug.Log("CRITICAL!!");
         }
         else
@@ -58,6 +61,11 @@ public class Game : MonoBehaviour
             GameManager.money = 0;
         }
 
+    }
+    public void GenerateCritText()
+    {
+        var clone = Instantiate(crit, critSpawn.transform);
+        clone.Play();
     }
     public void BuyUpgrade1()
     {        
