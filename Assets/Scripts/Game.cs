@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class Game : MonoBehaviour
 {
     public TextMeshProUGUI MoneyCounter;
-    public TextMeshProUGUI Upgrade1Counter;
-    public TextMeshProUGUI Upgrade2Counter;
-    public TextMeshProUGUI Upgrade3Counter;
+    public GameObject ShopCanvas;
     public TextMeshProUGUI Clicks;
     
 
@@ -37,15 +37,6 @@ public class Game : MonoBehaviour
         Debug.Log("Range is: " + GameManager.Range100);
         Debug.Log("Upgrade2 value: " + GameManager.Upgrade2Max);
     }
-    public void BuyUpgrade1()
-    {        
-        if(GameManager.money >= GameManager.Upgrade1) 
-        {
-            GameManager.multiplier += 1;
-            GameManager.money -= GameManager.Upgrade1;
-            GameManager.Upgrade1 += 50;
-        }
-    }
     public void CoinFlip()
     {
         GameManager.CoinFlipRandomNumber1 = Random.Range(0, 2);
@@ -63,6 +54,15 @@ public class Game : MonoBehaviour
             GameManager.money = 0;
         }
 
+    }
+    public void BuyUpgrade1()
+    {        
+        if(GameManager.money >= GameManager.Upgrade1) 
+        {
+            GameManager.multiplier += 1;
+            GameManager.money -= GameManager.Upgrade1;
+            GameManager.Upgrade1 += 50;
+        }
     }
     public void BuyUpgrade2()
     {        
@@ -89,29 +89,19 @@ public class Game : MonoBehaviour
         }
     }  
 
+    public void BackToGame()
+    {
+        ShopCanvas.SetActive(false);
+    }
+    public void Shop()
+    {
+        ShopCanvas.SetActive(true);
+    }
+
     public void Update()
     {
         GameManager.startTime = Time.time + 0.5f;
-        if (GameManager.Upgrade2Max)
-        {
-            Upgrade2Counter.text = "Max";
-        }
-        if (!GameManager.Upgrade2Max)
-        {
-        Upgrade2Counter.text = ""+GameManager.Upgrade2;
-        }
-        if (!GameManager.BoughtUpgrade3)
-        {
-            Upgrade3Counter.text = "" + GameManager.Upgrade3;
-
-        }
-        if (GameManager.BoughtUpgrade3)
-        {
-            Upgrade3Counter.text = "Max";
-            GameManager.money += GameManager.automultiplier;
-        }
         Clicks.text = "Clicks " + GameManager.Clicks;
         MoneyCounter.text = "Money: " + GameManager.money;
-        Upgrade1Counter.text = ""+GameManager.Upgrade1;
     }
 }

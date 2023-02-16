@@ -3,7 +3,7 @@ using TMPro;
 
 public class FPSdisplay : MonoBehaviour
 {
-    public TextMeshProUGUI FpsText;
+    public static TextMeshProUGUI FpsText;
     private float pollingTime = 1f;
     private float time;
     private int frameCount;
