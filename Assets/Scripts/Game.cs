@@ -12,10 +12,13 @@ public class Game : MonoBehaviour
     public TextMeshProUGUI MoneyCounter;
     public GameObject ShopCanvas;
     public TextMeshProUGUI Clicks;
-    
+    public AudioSource ClickSound;
 
     public void Increment()
     {
+        AudioSource newSource = Instantiate(ClickSound, transform);
+        newSource.Play();
+        Destroy(newSource, 2f);
         GameManager.Clicks += 1;
         GameManager.randomnumber2 = Random.Range(GameManager.Range0, GameManager.Range100);
         GameManager.randomnumber1 = Random.Range(GameManager.Range0, GameManager.Range100);

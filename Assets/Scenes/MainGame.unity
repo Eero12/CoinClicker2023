@@ -603,6 +603,7 @@ MonoBehaviour:
   MoneyCounter: {fileID: 1557060271}
   ShopCanvas: {fileID: 937073228}
   Clicks: {fileID: 1336340888}
+  ClickSound: {fileID: 405566388}
 --- !u!1 &608046521
 GameObject:
   m_ObjectHideFlags: 0
