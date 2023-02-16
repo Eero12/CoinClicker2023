@@ -13,12 +13,13 @@ public class Game : MonoBehaviour
     public GameObject ShopCanvas;
     public TextMeshProUGUI Clicks;
     public AudioSource ClickSound;
+    private float LastAuto;
 
     public void Increment()
     {
         AudioSource newSource = Instantiate(ClickSound, transform);
         newSource.Play();
-        Destroy(newSource, 2f);
+        Destroy(newSource.gameObject, 2f);
         GameManager.Clicks += 1;
         GameManager.randomnumber2 = Random.Range(GameManager.Range0, GameManager.Range100);
         GameManager.randomnumber1 = Random.Range(GameManager.Range0, GameManager.Range100);
@@ -89,6 +90,7 @@ public class Game : MonoBehaviour
         {
             GameManager.money -= GameManager.Upgrade3;
             GameManager.BoughtUpgrade3 = true;   
+            
         }
     }  
 
@@ -103,11 +105,12 @@ public class Game : MonoBehaviour
 
     public void Update()
     {
-        if (GameManager.BoughtUpgrade3)
+
+        if (GameManager.BoughtUpgrade3 && LastAuto <= Time.time)
         {
             GameManager.money += GameManager.automultiplier;
+            LastAuto = Time.time + GameManager.Upgrade3Multiplier;
         }
-        GameManager.startTime = Time.time + 0.5f;
         Clicks.text = "Clicks " + GameManager.Clicks;
         MoneyCounter.text = "Money: " + GameManager.money;
     }

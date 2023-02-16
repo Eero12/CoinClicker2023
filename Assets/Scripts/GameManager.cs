@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static float Upgrade2;
     public static float Upgrade3;
     public static bool BoughtUpgrade3;
+    public static float Upgrade3Multiplier;
     public static bool Upgrade2Max;
     public static float money;
     public static float multiplier;
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Upgrade3Multiplier = 1;
         Clicks = 0;
         BoughtUpgrade3 = false;
         Upgrade2Max = false;
