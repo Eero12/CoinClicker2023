@@ -10,7 +10,9 @@ using UnityEngine.SceneManagement;
 public class Game : MonoBehaviour
 {
     public TextMeshProUGUI MoneyCounter;
+    public TextMeshProUGUI MoneyCounter2;
     public GameObject ShopCanvas;
+    public GameObject GamblingCanvas;
     public TextMeshProUGUI Clicks;
     public AudioSource ClickSound;
     public CriticalClick crit;
@@ -105,10 +107,14 @@ public class Game : MonoBehaviour
     public void BackToGame()
     {
         ShopCanvas.SetActive(false);
+        GamblingCanvas.SetActive(false);
     }
     public void Shop()
     {
         ShopCanvas.SetActive(true);
+    } public void Gambling()
+    {
+        GamblingCanvas.SetActive(true);
     }
 
     public void Update()
@@ -121,5 +127,6 @@ public class Game : MonoBehaviour
         }
         Clicks.text = "Clicks " + GameManager.Clicks;
         MoneyCounter.text = "Money: " + GameManager.money;
+        MoneyCounter2.text = "Money: " + GameManager.money;
     }
 }
