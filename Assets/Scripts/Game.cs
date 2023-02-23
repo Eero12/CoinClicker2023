@@ -13,6 +13,7 @@ public class Game : MonoBehaviour
     public TextMeshProUGUI MoneyCounter2;
     public GameObject ShopCanvas;
     public GameObject GamblingCanvas;
+    public GameObject CollectionCanvas;
     public TextMeshProUGUI Clicks;
     public AudioSource ClickSound;
     public CriticalClick crit;
@@ -108,6 +109,7 @@ public class Game : MonoBehaviour
     {
         ShopCanvas.SetActive(false);
         GamblingCanvas.SetActive(false);
+        CollectionCanvas.SetActive(false);
     }
     public void Shop()
     {
@@ -115,6 +117,9 @@ public class Game : MonoBehaviour
     } public void Gambling()
     {
         GamblingCanvas.SetActive(true);
+    }public void Collection()
+    {
+        CollectionCanvas.SetActive(true);
     }
 
     public void Update()
