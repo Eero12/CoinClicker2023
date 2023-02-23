@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         Clicks = 0;
         BoughtUpgrade3 = false;
         Upgrade2Max = false;
-        Upgrade3 = 0;
+        Upgrade3 = 200;
         Upgrade1 = 25;
         Upgrade2 = 25;
         multiplier = 1;

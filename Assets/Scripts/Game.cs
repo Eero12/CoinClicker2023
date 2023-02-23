@@ -14,6 +14,7 @@ public class Game : MonoBehaviour
     public GameObject ShopCanvas;
     public GameObject GamblingCanvas;
     public GameObject CollectionCanvas;
+    public GameObject CollectiblesCanvas;
     public TextMeshProUGUI Clicks;
     public AudioSource ClickSound;
     public CriticalClick crit;
@@ -111,6 +112,11 @@ public class Game : MonoBehaviour
         GamblingCanvas.SetActive(false);
         CollectionCanvas.SetActive(false);
     }
+    public void BackToShop()
+    {
+
+        CollectiblesCanvas.SetActive(false);
+    }
     public void Shop()
     {
         ShopCanvas.SetActive(true);
@@ -120,6 +126,9 @@ public class Game : MonoBehaviour
     }public void Collection()
     {
         CollectionCanvas.SetActive(true);
+    }public void Collectibles()
+    {
+        CollectiblesCanvas.SetActive(true);
     }
 
     public void Update()
