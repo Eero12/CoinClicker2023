@@ -1362,7 +1362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &314992666
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2534,7 +2534,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &632825137
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5305,7 +5305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2014398590262394528, guid: 711c46ccf7313e54281c489c44955470, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 180
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2014398590262394528, guid: 711c46ccf7313e54281c489c44955470, type: 3}
       propertyPath: m_SizeDelta.y
@@ -5423,7 +5423,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2014398590487975526, guid: 711c46ccf7313e54281c489c44955470, type: 3}
       propertyPath: m_fontSize
-      value: 22.15
+      value: 24.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014398590487975526, guid: 711c46ccf7313e54281c489c44955470, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2014398590487975526, guid: 711c46ccf7313e54281c489c44955470, type: 3}
       propertyPath: m_fontColor.b
@@ -5438,8 +5442,36 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2014398590487975526, guid: 711c46ccf7313e54281c489c44955470, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014398590487975526, guid: 711c46ccf7313e54281c489c44955470, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014398590487975526, guid: 711c46ccf7313e54281c489c44955470, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014398590487975526, guid: 711c46ccf7313e54281c489c44955470, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278253823
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014398590487975526, guid: 711c46ccf7313e54281c489c44955470, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014398590487975526, guid: 711c46ccf7313e54281c489c44955470, type: 3}
+      propertyPath: m_overrideHtmlColors
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014398590487975526, guid: 711c46ccf7313e54281c489c44955470, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014398590487975526, guid: 711c46ccf7313e54281c489c44955470, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711c46ccf7313e54281c489c44955470, type: 3}

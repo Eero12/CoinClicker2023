@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using TMPro;
 
-public class Collectibles : MonoBehaviour
+public class BuyCollectibles : MonoBehaviour
 {
     public TextMeshProUGUI Collectible1;
     public float Collectible1Price = 50;
