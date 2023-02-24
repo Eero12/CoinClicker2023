@@ -69,13 +69,5 @@ public void BuyCollectible2()
             Collectible5.text = "BOUGHT";
         }
     }
-    void Start()
-    {
 
-    }
-
-    void Update()
-    {
-
-    }
 }
