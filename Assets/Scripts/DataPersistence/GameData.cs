@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameData : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+[System.Serializable]
 
-    // Update is called once per frame
-    void Update()
+public class GameData
+{
+    public float clicks;
+
+    //tässä scriptissä ilmoitetaan pelin alussa voimassa olevat arvot.
+
+    public GameData()
     {
-        
+        this.clicks = 0;
+
     }
 }
+

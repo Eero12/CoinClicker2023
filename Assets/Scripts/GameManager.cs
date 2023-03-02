@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IDataPersistence
 {
     public static float Upgrade1;
     public static float Upgrade2;
@@ -23,6 +23,15 @@ public class GameManager : MonoBehaviour
     public static float Clicks;
     public static float startTime;
 
+    public void LoadData(GameData data)
+    {
+        Clicks = data.clicks;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.clicks = Clicks;
+    }
     void Start()
     {
         Upgrade3Multiplier = 1;
