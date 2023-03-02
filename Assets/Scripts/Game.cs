@@ -139,8 +139,8 @@ public class Game : MonoBehaviour
             GameManager.money += GameManager.automultiplier;
             LastAuto = Time.time + GameManager.Upgrade3Multiplier;
         }
-        Clicks.text = "Clicks " + GameManager.Clicks;
-        MoneyCounter.text = "Money: " + GameManager.money;
+        Clicks.text = "Clicks " + GameManager.Clicks.ToString("G50");
+        MoneyCounter.text = "Money: " + GameManager.money.ToString("G50");
         MoneyCounter2.text = "Money: " + GameManager.money;
     }
 }
