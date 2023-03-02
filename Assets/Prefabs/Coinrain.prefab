@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7522080229131570145
+--- !u!1 &7670782287347322050
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7522080229131570144}
-  - component: {fileID: 7522080229131570146}
-  - component: {fileID: 7522080229131570147}
+  - component: {fileID: 6853437257889362806}
+  - component: {fileID: 5733280890727935523}
+  - component: {fileID: 4854803493045758651}
   m_Layer: 0
   m_Name: Coinrain
   m_TagString: Untagged
@@ -18,28 +18,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7522080229131570144
+--- !u!4 &6853437257889362806
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7522080229131570145}
+  m_GameObject: {fileID: 7670782287347322050}
   m_LocalRotation: {x: 0.0006123166, y: -0.7071065, z: 0.7071066, w: -0.00061231677}
-  m_LocalPosition: {x: -400.07, y: -655.74, z: 14.39}
+  m_LocalPosition: {x: -400.06, y: -665.1, z: 14.39}
   m_LocalScale: {x: 1.3005, y: 1.3005, z: 2.601}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 89.901, y: 0, z: 180.099}
---- !u!198 &7522080229131570146
+--- !u!198 &5733280890727935523
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7522080229131570145}
+  m_GameObject: {fileID: 7670782287347322050}
   serializedVersion: 8
   lengthInSec: 5
   simulationSpeed: 1
@@ -4740,14 +4740,14 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &7522080229131570147
+--- !u!199 &4854803493045758651
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7522080229131570145}
+  m_GameObject: {fileID: 7670782287347322050}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -4761,7 +4761,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 48812ce10c785c547a2bea76b656927a, type: 2}
+  - {fileID: 2100000, guid: aeee1af0f47f0c2478a1f86fd6b94da5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
