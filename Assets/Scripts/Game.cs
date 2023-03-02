@@ -15,6 +15,7 @@ public class Game : MonoBehaviour
     public GameObject GamblingCanvas;
     public GameObject CollectionCanvas;
     public GameObject CollectiblesCanvas;
+    public GameObject plusObject;
     public TextMeshProUGUI Clicks;
     public AudioSource ClickSound;
     public CriticalClick crit;
@@ -23,9 +24,9 @@ public class Game : MonoBehaviour
 
     public void Increment()
     {
-        AudioSource newSource = Instantiate(ClickSound, transform);
-        newSource.Play();    
-        Destroy(newSource.gameObject, 2f);
+
+        ClickSound.PlayOneShot(ClickSound.clip);    
+       
         GameManager.Clicks += 1;
         GameManager.randomnumber2 = Random.Range(GameManager.Range0, GameManager.Range100);
         GameManager.randomnumber1 = Random.Range(GameManager.Range0, GameManager.Range100);
