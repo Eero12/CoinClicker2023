@@ -37,14 +37,14 @@ public class DataPersistenceManager : MonoBehaviour
     {
         //Load any saved data from a file using the data handler.
         this.gameData = dataHandler.Load();
+
         //if no data can be loaded, initialize to a new game.
         if (this.gameData == null)
         {
-
             NewGame();
         }
 
-        //antaa tallennetut tiedot kaikille scriteille jotka sitä tarvii
+        //antaa tallennetut tiedot kaikille scripteille jotka sitä tarvii
         foreach (IDataPersistence dataPersisteceObj in dataPersistenceObjects)
         {
             dataPersisteceObj.LoadData(gameData);

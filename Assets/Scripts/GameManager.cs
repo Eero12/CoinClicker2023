@@ -25,29 +25,38 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        Clicks = data.clicks;
+        Clicks =data.clicks;
+        money = data.money;
+        Upgrade3Multiplier = data.Upgrade3Multiplier;
+        BoughtUpgrade3 = data.BoughtUpgrade3;
+        Upgrade2Max = data.Upgrade2Max;
+        Upgrade3 = data.Upgrade3;
+        Upgrade1 = data.Upgrade1;
+        Upgrade2 = data.Upgrade2;
+        multiplier = data.multiplier;
+        automultiplier = data.automultiplier;
+        CritPercent = data.CritPercent;
+        Range0 = data.Range0;
+        Range100 = data.Range100;
     }
 
     public void SaveData(ref GameData data)
     {
         data.clicks = Clicks;
+        data.money = money;
+        data.Upgrade3Multiplier = Upgrade3Multiplier;
+        data.BoughtUpgrade3 = BoughtUpgrade3;
+        data.Upgrade2Max = Upgrade2Max;
+        data.Upgrade3 = Upgrade3;
+        data.Upgrade1 = Upgrade1;
+        data.Upgrade2 = Upgrade2;
+        data.multiplier = multiplier;
+        data.automultiplier = automultiplier;
+        data.CritPercent = CritPercent;
+        data.Range0 = Range0;
+        data.Range100 = Range100;
     }
-    void Start()
-    {
-        Upgrade3Multiplier = 1;
-        Clicks = 0;
-        BoughtUpgrade3 = false;
-        Upgrade2Max = false;
-        Upgrade3 = 200;
-        Upgrade1 = 25;
-        Upgrade2 = 25;
-        multiplier = 1;
-        automultiplier = 1;
-        money = 0;
-        CritPercent = 100;
-        Range0 = 0;
-        Range100 = 100;
-    }
+
 
 
 }
