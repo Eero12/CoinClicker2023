@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
 {
     public TextMeshProUGUI MoneyCounter;
     public TextMeshProUGUI MoneyCounter2;
+    public TextMeshProUGUI MoneyCounter3;
     public GameObject ShopCanvas;
     public GameObject GamblingCanvas;
     public GameObject CollectionCanvas;
@@ -141,6 +142,7 @@ public class Game : MonoBehaviour
         }
         Clicks.text = "Clicks " + GameManager.Clicks.ToString("G50");
         MoneyCounter.text = "Money: " + GameManager.money.ToString("G50");
-        MoneyCounter2.text = "Money: " + GameManager.money;
+        MoneyCounter2.text = "Money: " + GameManager.money.ToString("G50"); ;
+        MoneyCounter3.text = "Money: " + GameManager.money.ToString("G50"); ;
     }
 }
