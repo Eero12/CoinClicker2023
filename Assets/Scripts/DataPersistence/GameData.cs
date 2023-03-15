@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [System.Serializable]
 
@@ -24,6 +25,12 @@ public class GameData
     public bool BoughtCollectible3;
     public bool BoughtCollectible4;
     public bool BoughtCollectible5;
+    public float Collectible1Price;
+    public float Collectible2Price;
+    public float Collectible3Price;
+    public float Collectible4Price;
+    public float Collectible5Price;
+
 
     //tässä scriptissä ilmoitetaan pelin alussa voimassa olevat arvot.
 
@@ -47,6 +54,11 @@ public class GameData
         this.BoughtCollectible3 = false;
         this.BoughtCollectible4 = false;
         this.BoughtCollectible5 = false;
+        this.Collectible1Price = 50;
+        this.Collectible2Price = 100;
+        this.Collectible3Price = 150;
+        this.Collectible4Price = 200;
+        this.Collectible5Price = 250;
 
     }
 }

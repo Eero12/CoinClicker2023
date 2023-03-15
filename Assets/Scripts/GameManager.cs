@@ -38,6 +38,17 @@ public class GameManager : MonoBehaviour, IDataPersistence
         CritPercent = data.CritPercent;
         Range0 = data.Range0;
         Range100 = data.Range100;
+        BuyCollectibles.BoughtCollectible1 = data.BoughtCollectible1;
+        BuyCollectibles.BoughtCollectible2 = data.BoughtCollectible2;
+        BuyCollectibles.BoughtCollectible3 = data.BoughtCollectible3;
+        BuyCollectibles.BoughtCollectible4 = data.BoughtCollectible4;
+        BuyCollectibles.BoughtCollectible5 = data.BoughtCollectible5;
+        BuyCollectibles.Collectible1Price = data.Collectible1Price;
+        BuyCollectibles.Collectible2Price = data.Collectible2Price;
+        BuyCollectibles.Collectible3Price = data.Collectible3Price;
+        BuyCollectibles.Collectible4Price = data.Collectible4Price;
+        BuyCollectibles.Collectible5Price = data.Collectible5Price;
+
     }
 
     public void SaveData(ref GameData data)
@@ -55,8 +66,17 @@ public class GameManager : MonoBehaviour, IDataPersistence
         data.CritPercent = CritPercent;
         data.Range0 = Range0;
         data.Range100 = Range100;
+        data.BoughtCollectible1 = BuyCollectibles.BoughtCollectible1;
+        data.BoughtCollectible2 = BuyCollectibles.BoughtCollectible2;
+        data.BoughtCollectible3 = BuyCollectibles.BoughtCollectible3;
+        data.BoughtCollectible4 = BuyCollectibles.BoughtCollectible4;
+        data.BoughtCollectible5 = BuyCollectibles.BoughtCollectible5;
+        data.Collectible1Price = BuyCollectibles.Collectible1Price;
+        data.Collectible2Price = BuyCollectibles.Collectible2Price;
+        data.Collectible3Price = BuyCollectibles.Collectible3Price;
+        data.Collectible4Price = BuyCollectibles.Collectible4Price;
+        data.Collectible5Price = BuyCollectibles.Collectible5Price;
+
+
     }
-
-
-
 }

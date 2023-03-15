@@ -1439,6 +1439,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39336b6fbff0ff84cba02b2788696256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Collectible1: {fileID: 958681548}
+  Collectible2: {fileID: 962931567}
+  Collectible3: {fileID: 336185482}
+  Collectible4: {fileID: 2541693}
+  Collectible5: {fileID: 1202534407}
 --- !u!1 &318986182
 GameObject:
   m_ObjectHideFlags: 0
@@ -3836,7 +3841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &937073229
 RectTransform:
   m_ObjectHideFlags: 0
