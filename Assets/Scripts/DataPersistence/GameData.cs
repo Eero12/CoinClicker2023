@@ -19,6 +19,11 @@ public class GameData
     public float CritPercent;
     public int Range0;
     public int Range100;
+    public bool BoughtCollectible1;
+    public bool BoughtCollectible2;
+    public bool BoughtCollectible3;
+    public bool BoughtCollectible4;
+    public bool BoughtCollectible5;
 
     //tässä scriptissä ilmoitetaan pelin alussa voimassa olevat arvot.
 
@@ -37,6 +42,12 @@ public class GameData
         this.CritPercent = 100;
         this.Range0 = 0;
         this.Range100 = 100;
+        this.BoughtCollectible1 = false;
+        this.BoughtCollectible2 = false;
+        this.BoughtCollectible3 = false;
+        this.BoughtCollectible4 = false;
+        this.BoughtCollectible5 = false;
+
     }
 }
 
