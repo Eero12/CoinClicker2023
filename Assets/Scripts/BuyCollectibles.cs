@@ -35,7 +35,6 @@ public class BuyCollectibles : MonoBehaviour, IDataPersistence
         {
             GameManager.money -= Collectible1Price;
             BoughtCollectible1 = true;
-            Collectible1.text = "BOUGHT";
         }
     }
 public void BuyCollectible2()
@@ -76,4 +75,31 @@ public void BuyCollectible2()
         }
     }
 
+    private void Update()
+    {
+        if (BoughtCollectible1 == true)
+        {
+            Collectible1.text = "BOUGHT";
+        }
+
+        if (BoughtCollectible2 == true)
+        {
+            Collectible2.text = "BOUGHT";
+        }
+
+        if (BoughtCollectible3 == true)
+        {
+            Collectible3.text = "BOUGHT";
+        }
+
+        if (BoughtCollectible4 == true)
+        {
+            Collectible4.text = "BOUGHT";
+        }
+
+        if (BoughtCollectible5 == true)
+        {
+            Collectible5.text = "BOUGHT";
+        }
+    }
 }

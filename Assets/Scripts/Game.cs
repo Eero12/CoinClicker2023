@@ -134,7 +134,6 @@ public class Game : MonoBehaviour
 
     public void Update()
     {
-
         if (GameManager.BoughtUpgrade3 && LastAuto <= Time.time)
         {
             GameManager.money += GameManager.automultiplier;
@@ -145,4 +144,5 @@ public class Game : MonoBehaviour
         MoneyCounter2.text = "Money: " + GameManager.money.ToString("G50"); ;
         MoneyCounter3.text = "Money: " + GameManager.money.ToString("G50"); ;
     }
+
 }
