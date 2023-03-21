@@ -66,6 +66,20 @@ public class Game : MonoBehaviour
             GameManager.money = 0;
         }
 
+    }public void Gambling_game1()
+    {
+        GameManager.Gambling_game1_number1 = Random.Range(0, 3);
+        GameManager.Gambling_game1_number2 = Random.Range(0, 3);
+        if (GameManager.Gambling_game1_number1 == GameManager.Gambling_game1_number2)
+        {
+            GameManager.money = GameManager.money * 3;
+        }
+        if (GameManager.Gambling_game1_number1 != GameManager.Gambling_game1_number2)
+        {
+            GameManager.money = GameManager.money * 0;
+        }
+   
+
     }
     public void GenerateCritText()
     {
