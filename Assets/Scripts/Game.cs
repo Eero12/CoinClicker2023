@@ -12,6 +12,7 @@ public class Game : MonoBehaviour
     public TextMeshProUGUI MoneyCounter;
     public TextMeshProUGUI MoneyCounter2;
     public TextMeshProUGUI MoneyCounter3;
+    public TextMeshProUGUI BetAmount;
     public GameObject ShopCanvas;
     public GameObject GamblingCanvas;
     public GameObject CollectionCanvas;
@@ -42,20 +43,14 @@ public class Game : MonoBehaviour
             GameManager.money += GameManager.multiplier;
         }
     }
-    public void Values()
-    {        
-        Debug.Log("RandomNumber1: " + GameManager.randomnumber1);
-        Debug.Log("RandomNumber2: " + GameManager.randomnumber2);
-        Debug.Log("Range is: " + GameManager.Range100);
-        Debug.Log("Upgrade2 value: " + GameManager.Upgrade2Max);
-    }
+
     public void CoinFlip()
     {
         GameManager.CoinFlipRandomNumber1 = Random.Range(0, 2);
         GameManager.CoinFlipRandomNumber2 = Random.Range(0, 2);
         if (GameManager.CoinFlipRandomNumber1 == GameManager.CoinFlipRandomNumber2)
         {
-            GameManager.money += GameManager.money;
+            GameManager.money += GameManager.Gambling_bet;
             Debug.Log(GameManager.CoinFlipRandomNumber2);
             Debug.Log(GameManager.CoinFlipRandomNumber1);
         }   
@@ -63,24 +58,54 @@ public class Game : MonoBehaviour
         {
             Debug.Log(GameManager.CoinFlipRandomNumber2);
             Debug.Log(GameManager.CoinFlipRandomNumber1);
-            GameManager.money = 0;
+            GameManager.money -= GameManager.Gambling_bet;
+            GameManager.Gambling_bet = 0;
+
         }
 
-    }public void Gambling_game1()
+    }
+    public void Gambling_game1()
     {
         GameManager.Gambling_game1_number1 = Random.Range(0, 3);
         GameManager.Gambling_game1_number2 = Random.Range(0, 3);
         if (GameManager.Gambling_game1_number1 == GameManager.Gambling_game1_number2)
         {
-            GameManager.money = GameManager.money * 3;
+            GameManager.money = GameManager.Gambling_bet * 3;
         }
         if (GameManager.Gambling_game1_number1 != GameManager.Gambling_game1_number2)
         {
-            GameManager.money = GameManager.money * 0;
+            GameManager.money -= GameManager.Gambling_bet;
+            GameManager.Gambling_bet = 0;
         }
-   
-
     }
+    public void Gambling_game2()
+    {
+        GameManager.Gambling_game1_number1 = Random.Range(0, 4);
+        GameManager.Gambling_game1_number2 = Random.Range(0, 4);
+        if (GameManager.Gambling_game1_number1 == GameManager.Gambling_game1_number2)
+        {
+            GameManager.money = GameManager.Gambling_bet * 4;
+        }
+        if (GameManager.Gambling_game1_number1 != GameManager.Gambling_game1_number2)
+        {
+            GameManager.money -= GameManager.Gambling_bet;
+            GameManager.Gambling_bet = 0;
+        }
+    }
+    public void Div_3()
+    {
+        GameManager.Gambling_bet = Mathf.RoundToInt(GameManager.money / GameManager.Gambling_div3);
+    }
+    public void Div_2()
+    {
+        GameManager.Gambling_bet = Mathf.RoundToInt(GameManager.money / GameManager.Gambling_div2);
+    }
+    public void All_In()
+    {
+        GameManager.Gambling_bet = GameManager.money;
+    }
+
+
     public void GenerateCritText()
     {
         var clone = Instantiate(crit, critSpawn.transform);
@@ -157,6 +182,7 @@ public class Game : MonoBehaviour
         MoneyCounter.text = "Money: " + GameManager.money.ToString("G50");
         MoneyCounter2.text = "Money: " + GameManager.money.ToString("G50"); ;
         MoneyCounter3.text = "Money: " + GameManager.money.ToString("G50"); ;
+        BetAmount.text = "Bet: " + GameManager.Gambling_bet.ToString("G50"); ;
     }
 
 }

@@ -18,15 +18,23 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public static int randomnumber2;
     public static int CoinFlipRandomNumber1;
     public static int CoinFlipRandomNumber2;
-    public static int Gambling_game1_number1;
-    public static int Gambling_game1_number2;
     public static int Range0;
     public static int Range100;
     public static float Clicks;
     public static float startTime;
+    public static float Gambling_bet;
+    public static float Gambling_div3;
+    public static float Gambling_div2;
+    public static float Gambling_AllIn;
+    public static int Gambling_game1_number1;
+    public static int Gambling_game1_number2;
 
     public void LoadData(GameData data)
     {
+        Gambling_bet = 0;
+        Gambling_div2 = 2;
+        Gambling_div3 = 3;
+        Gambling_AllIn = money;
         Clicks =data.clicks;
         money = data.money;
         Upgrade3Multiplier = data.Upgrade3Multiplier;
