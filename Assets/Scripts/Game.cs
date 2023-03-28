@@ -13,11 +13,13 @@ public class Game : MonoBehaviour
     public TextMeshProUGUI MoneyCounter;
     public TextMeshProUGUI MoneyCounter2;
     public TextMeshProUGUI MoneyCounter3;
+    public TextMeshProUGUI MoneyCounter4;
     public TextMeshProUGUI BetAmount;
     public GameObject ShopCanvas;
     public GameObject GamblingCanvas;
     public GameObject CollectionCanvas;
     public GameObject CollectiblesCanvas;
+    public GameObject BusinesssCanvas;
     public TextMeshProUGUI Clicks;
     public AudioSource ClickSound;
     public CriticalClick crit;
@@ -46,7 +48,27 @@ public class Game : MonoBehaviour
             GameManager.money += GameManager.multiplier;
         }
     }
+    public void Update()
+    {
+        if (GameManager.BoughtUpgrade3 && LastAuto <= Time.time)
+        {
+            GameManager.money += GameManager.automultiplier;
+            LastAuto = Time.time + GameManager.Upgrade3Multiplier;
+        }
+        if (GameManager.Bought_HotDog && LastAuto <= Time.time)
+        {
+            GameManager.money += GameManager.HotDog_Amount;
+            LastAuto = Time.time + 1;
+        }
+        Clicks.text = "Clicks " + GameManager.Clicks.ToString("G50");
+        MoneyCounter.text = "Money: " + GameManager.money.ToString("G50");
+        MoneyCounter2.text = "Money: " + GameManager.money.ToString("G50"); 
+        MoneyCounter3.text = "Money: " + GameManager.money.ToString("G50");
+        MoneyCounter4.text = "Money: " + GameManager.money.ToString("G50"); 
+        BetAmount.text = "Bet: " + GameManager.Gambling_bet.ToString("G50"); 
+    }
 
+    #region GAMBLING
     public void CoinFlip()
     {
         GameManager.CoinFlipRandomNumber1 = Random.Range(0, 2);
@@ -107,13 +129,9 @@ public class Game : MonoBehaviour
     {
         GameManager.Gambling_bet = GameManager.money;
     }
+    #endregion
 
-
-    public void GenerateCritText()
-    {
-        var clone = Instantiate(crit, critSpawn.transform);
-        clone.Play();
-    }
+    #region BUYUPGRADES
     public void BuyUpgrade1()
     {        
         if(GameManager.money >= GameManager.Upgrade1) 
@@ -147,13 +165,21 @@ public class Game : MonoBehaviour
             GameManager.BoughtUpgrade3 = true;   
             
         }
-    }  
+    }
+    #endregion
 
+    #region CANVAS
+    public void GenerateCritText()
+    {
+        var clone = Instantiate(crit, critSpawn.transform);
+        clone.Play();
+    }
     public void BackToGame()
     {
         ShopCanvas.SetActive(false);
         GamblingCanvas.SetActive(false);
         CollectionCanvas.SetActive(false);
+        BusinesssCanvas.SetActive(false);
     }
     public void BackToShop()
     {
@@ -173,19 +199,24 @@ public class Game : MonoBehaviour
     {
         CollectiblesCanvas.SetActive(true);
     }
-
-    public void Update()
+    public void  Business()
     {
-        if (GameManager.BoughtUpgrade3 && LastAuto <= Time.time)
-        {
-            GameManager.money += GameManager.automultiplier;
-            LastAuto = Time.time + GameManager.Upgrade3Multiplier;
-        }
-        Clicks.text = "Clicks " + GameManager.Clicks.ToString("G50");
-        MoneyCounter.text = "Money: " + GameManager.money.ToString("G50");
-        MoneyCounter2.text = "Money: " + GameManager.money.ToString("G50"); ;
-        MoneyCounter3.text = "Money: " + GameManager.money.ToString("G50"); ;
-        BetAmount.text = "Bet: " + GameManager.Gambling_bet.ToString("G50"); ;
+        BusinesssCanvas.SetActive(true);
     }
+    #endregion
+
+    #region BUSINESS 
+    public float HotDogPrice;
+    public void Buy_HotDog()
+    {
+        GameManager.HotDog_Amount++;
+        HotDogPrice -= GameManager.money;
+        GameManager.Bought_HotDog = true;
+    }
+
+
+
+    #endregion
+
 
 }

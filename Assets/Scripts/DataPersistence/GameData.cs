@@ -7,6 +7,8 @@ using TMPro;
 
 public class GameData
 {
+    public bool Bought_HotDog;
+    public int HotDog_Amount;
     public float clicks;
     public float money;
     public float Upgrade3Multiplier;
@@ -36,6 +38,8 @@ public class GameData
 
     public GameData()
     {
+        this.HotDog_Amount = 0;
+        this.Bought_HotDog = false;
         this.clicks = 0;
         this.money = 0;
         this.Upgrade3Multiplier = 1;

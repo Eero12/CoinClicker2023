@@ -28,9 +28,13 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public static float Gambling_AllIn;
     public static int Gambling_game1_number1;
     public static int Gambling_game1_number2;
+    public static bool Bought_HotDog;
+    public static int HotDog_Amount;
 
     public void LoadData(GameData data)
     {
+        HotDog_Amount = data.HotDog_Amount;
+        Bought_HotDog = data.Bought_HotDog;
         Gambling_bet = 0;
         Gambling_div2 = 2;
         Gambling_div3 = 3;
@@ -63,6 +67,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
+        data.HotDog_Amount = HotDog_Amount;
+        data.Bought_HotDog = Bought_HotDog;
         data.clicks = Clicks;
         data.money = money;
         data.Upgrade3Multiplier = Upgrade3Multiplier;
