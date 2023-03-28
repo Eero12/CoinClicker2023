@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7776130063831243032
+--- !u!1 &6735202889257584064
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7776130063831243033}
-  - component: {fileID: 7776130063831243029}
-  - component: {fileID: 7776130063831243028}
-  - component: {fileID: 7776130063831243031}
-  - component: {fileID: 7776130063831243030}
+  - component: {fileID: 6735202889778616551}
+  - component: {fileID: 6735202889778616544}
+  - component: {fileID: 6735202889778616545}
+  - component: {fileID: 6735202889778616546}
+  - component: {fileID: 6735202889778616547}
   m_Layer: 5
   m_Name: CriticalClick
   m_TagString: Untagged
@@ -20,15 +20,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7776130063831243033
+--- !u!224 &6735202889778616551
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7776130063831243032}
+  m_GameObject: {fileID: 6735202889257584064}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -210}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37,24 +37,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 169.83429, y: 304}
+  m_AnchoredPosition: {x: 300, y: 753.75}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &7776130063831243029
+--- !u!222 &6735202889778616544
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7776130063831243032}
+  m_GameObject: {fileID: 6735202889257584064}
   m_CullTransparentMesh: 1
---- !u!114 &7776130063831243028
+--- !u!114 &6735202889778616545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7776130063831243032}
+  m_GameObject: {fileID: 6735202889257584064}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -95,13 +95,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40.48
+  m_fontSize: 30.05
   m_fontSizeBase: 40.48
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -131,20 +131,20 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -49.403625, w: 0}
+  m_margin: {x: 0, y: 0, z: -3.0577087, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!95 &7776130063831243031
+--- !u!95 &6735202889778616546
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7776130063831243032}
+  m_GameObject: {fileID: 6735202889257584064}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: bdbeb7244dd99a84f905947e72dc162a, type: 2}
@@ -157,17 +157,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7776130063831243030
+--- !u!114 &6735202889778616547
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7776130063831243032}
+  m_GameObject: {fileID: 6735202889257584064}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1e88da4f703eb343b8c6d6c97f08616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PopUp: {fileID: 7776130063831243032}
-  Animation: {fileID: 7776130063831243031}
+  PopUp: {fileID: 6735202889257584064}
+  Animation: {fileID: 6735202889778616546}

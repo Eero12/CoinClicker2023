@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
+    public Animator Animation;
     public TextMeshProUGUI MoneyCounter;
     public TextMeshProUGUI MoneyCounter2;
     public TextMeshProUGUI MoneyCounter3;
@@ -35,6 +36,8 @@ public class Game : MonoBehaviour
         {
             GameManager.money += GameManager.multiplier * GameManager.CritPercent;
             GenerateCritText();
+            Animation.Play("CriticalClickEffect");
+            //Destroy(gameObject, 0.5f);
             Debug.Log("CRITICAL!!");
         }
         else
