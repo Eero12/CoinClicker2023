@@ -22,16 +22,7 @@ public class Shop : MonoBehaviour
         if (!GameManager.Upgrade2Max)
         {
             Upgrade2Counter.text = "" + GameManager.Upgrade2;
-        }
-        if (!GameManager.BoughtUpgrade3)
-        {
-            Upgrade3Counter.text = "" + GameManager.Upgrade3;
-
-        }
-        if (GameManager.BoughtUpgrade3)
-        {
-            Upgrade3Counter.text = "Max";
-        }
+        }      
         Upgrade1Counter.text = "" + GameManager.Upgrade1;
 
     }

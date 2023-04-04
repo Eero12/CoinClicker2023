@@ -8,13 +8,12 @@ using TMPro;
 public class GameData
 {
     public bool Bought_HotDog;
+    public bool Bought_Lemonade;
     public int HotDog_Amount;
+    public int Lemonade_Amount;
     public float clicks;
     public float money;
-    public float Upgrade3Multiplier;
-    public bool BoughtUpgrade3;
     public bool Upgrade2Max;
-    public float Upgrade3;
     public float Upgrade1;
     public float Upgrade2;
     public float multiplier;
@@ -32,20 +31,25 @@ public class GameData
     public float Collectible3Price;
     public float Collectible4Price;
     public float Collectible5Price;
+    public float days;
+    public float months;
+    public float years;
 
 
     //tässä scriptissä ilmoitetaan pelin alussa voimassa olevat arvot.
 
     public GameData()
-    { 
+    {
+        this.days = 1;
+        this.months = 1;
+        this.years = 2023;
+        this.Lemonade_Amount = 0;
+        this.Bought_Lemonade = false;
         this.HotDog_Amount = 0;
         this.Bought_HotDog = false;
         this.clicks = 0;
         this.money = 0;
-        this.Upgrade3Multiplier = 1;
-        this.BoughtUpgrade3 = false;
         this.Upgrade2Max = false;
-        this.Upgrade3 = 200;
         this.Upgrade1 = 25;
         this.Upgrade2 = 25;
         this.multiplier = 1;

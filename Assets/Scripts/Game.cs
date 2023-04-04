@@ -17,6 +17,7 @@ public class Game : MonoBehaviour
     public TextMeshProUGUI BetAmount;
     public TextMeshProUGUI HotDog_Business_Owned;
     public TextMeshProUGUI Lemonade_Business_Owned;
+    public TextMeshProUGUI Year_Counter;
     public GameObject ShopCanvas;
     public GameObject GamblingCanvas;
     public GameObject CollectionCanvas;
@@ -26,7 +27,9 @@ public class Game : MonoBehaviour
     public AudioSource ClickSound;
     public CriticalClick crit;
     public GameObject critSpawn;
-    private float LastAuto;
+    private float LastAuto_HotDog;
+    private float LastAuto_Lemonade;
+    private float LastAuto_Years;
 
     public void Increment()
     {
@@ -51,31 +54,54 @@ public class Game : MonoBehaviour
     }
     public void Update()
     {
-        if (GameManager.BoughtUpgrade3 && LastAuto <= Time.time)
-        {
-            GameManager.money += GameManager.automultiplier;
-            LastAuto = Time.time + GameManager.Upgrade3Multiplier;
-        }
-        if (GameManager.Bought_HotDog && LastAuto <= Time.time)
+        #region BUSINESS_IF
+        if (GameManager.Bought_HotDog && LastAuto_HotDog <= Time.time)
         {
             GameManager.money += GameManager.HotDog_Amount;
-            LastAuto = Time.time + 1;
+            LastAuto_HotDog = Time.time + 1;
         }
-        if (GameManager.Bought_Lemonade && LastAuto <= Time.time)
+        else if (GameManager.Bought_Lemonade && LastAuto_Lemonade <= Time.time)
         {
             GameManager.money += GameManager.Lemonade_Amount;
-            LastAuto = Time.time + 2;
+            LastAuto_Lemonade = Time.time + 1;
         }
+        #endregion
         Clicks.text = "Clicks " + GameManager.Clicks.ToString("G50");
-        MoneyCounter.text = "Money: " + GameManager.money.ToString("G50");
+        MoneyCounter.text = "" + GameManager.money.ToString("G50");
         MoneyCounter2.text = "Money: " + GameManager.money.ToString("G50"); 
         MoneyCounter3.text = "Money: " + GameManager.money.ToString("G50");
         MoneyCounter4.text = "Money: " + GameManager.money.ToString("G50"); 
         BetAmount.text = "Bet: " + GameManager.Gambling_bet.ToString("G50");
         HotDog_Business_Owned.text = "Owned: " + GameManager.HotDog_Amount.ToString("G50");
         Lemonade_Business_Owned.text = "Owned: " + GameManager.Lemonade_Amount.ToString("G50");
+        Year_Counter.text = GameManager.years + "." + GameManager.months + "." + GameManager.days;
+
+        #region YEARSYSTEM
+        if (GameManager.days <= 30 && LastAuto_Years <= Time.time)
+        {
+            GameManager.days++;
+            LastAuto_Years = Time.time + 1;
+        }
+        switch (GameManager.days)
+        {
+            case 30:
+                GameManager.months++;
+                GameManager.days = 1;           
+                break;
+        }
+        switch (GameManager.months)
+        {
+            case 12:
+                GameManager.years++;
+                GameManager.months = 1;
+                break;
+        }
+
+
+        #endregion
 
     }
+
 
     #region GAMBLING
     public void CoinFlip()
@@ -166,15 +192,7 @@ public class Game : MonoBehaviour
         }
 
     }
-    public void BuyUpgrade3()
-    {        
-        if(GameManager.money >= GameManager.Upgrade3 && GameManager.BoughtUpgrade3 == false) 
-        {
-            GameManager.money -= GameManager.Upgrade3;
-            GameManager.BoughtUpgrade3 = true;   
-            
-        }
-    }
+
     #endregion
 
     #region CANVAS

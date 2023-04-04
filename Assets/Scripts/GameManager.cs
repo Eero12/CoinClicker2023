@@ -6,9 +6,6 @@ public class GameManager : MonoBehaviour, IDataPersistence
 {
     public static float Upgrade1;
     public static float Upgrade2;
-    public static float Upgrade3;
-    public static bool BoughtUpgrade3;
-    public static float Upgrade3Multiplier;
     public static bool Upgrade2Max;
     public static float money;
     public static float multiplier;
@@ -32,9 +29,17 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public static int HotDog_Amount;
     public static bool Bought_Lemonade;
     public static int Lemonade_Amount;
+    public static float days;
+    public static float months;
+    public static float years;
+
 
     public void LoadData(GameData data)
     {
+        days = data.days;
+        months = data.months;
+        years = data.years;
+        Lemonade_Amount = data.Lemonade_Amount;
         HotDog_Amount = data.HotDog_Amount;
         Bought_HotDog = data.Bought_HotDog;
         Gambling_bet = 0;
@@ -43,10 +48,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         Gambling_AllIn = money;
         Clicks =data.clicks;
         money = data.money;
-        Upgrade3Multiplier = data.Upgrade3Multiplier;
-        BoughtUpgrade3 = data.BoughtUpgrade3;
         Upgrade2Max = data.Upgrade2Max;
-        Upgrade3 = data.Upgrade3;
         Upgrade1 = data.Upgrade1;
         Upgrade2 = data.Upgrade2;
         multiplier = data.multiplier;
@@ -69,14 +71,16 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
+        data.days = days;
+        data.months = months;
+        data.years = years;
+        data.Bought_Lemonade = Bought_Lemonade;
+        data.Lemonade_Amount = Lemonade_Amount;
         data.HotDog_Amount = HotDog_Amount;
         data.Bought_HotDog = Bought_HotDog;
         data.clicks = Clicks;
         data.money = money;
-        data.Upgrade3Multiplier = Upgrade3Multiplier;
-        data.BoughtUpgrade3 = BoughtUpgrade3;
         data.Upgrade2Max = Upgrade2Max;
-        data.Upgrade3 = Upgrade3;
         data.Upgrade1 = Upgrade1;
         data.Upgrade2 = Upgrade2;
         data.multiplier = multiplier;
