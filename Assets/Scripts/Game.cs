@@ -15,6 +15,7 @@ public class Game : MonoBehaviour
     public TextMeshProUGUI MoneyCounter3;
     public TextMeshProUGUI MoneyCounter4;
     public TextMeshProUGUI BetAmount;
+    public TextMeshProUGUI HotDog_Business_Owned;
     public GameObject ShopCanvas;
     public GameObject GamblingCanvas;
     public GameObject CollectionCanvas;
@@ -39,7 +40,6 @@ public class Game : MonoBehaviour
             GameManager.money += GameManager.multiplier * GameManager.CritPercent;
             GenerateCritText();
             Animation.Play("CriticalClickEffect");
-            //Destroy(gameObject, 0.5f);
             Debug.Log("CRITICAL!!");
         }
         else
@@ -65,7 +65,9 @@ public class Game : MonoBehaviour
         MoneyCounter2.text = "Money: " + GameManager.money.ToString("G50"); 
         MoneyCounter3.text = "Money: " + GameManager.money.ToString("G50");
         MoneyCounter4.text = "Money: " + GameManager.money.ToString("G50"); 
-        BetAmount.text = "Bet: " + GameManager.Gambling_bet.ToString("G50"); 
+        BetAmount.text = "Bet: " + GameManager.Gambling_bet.ToString("G50");
+        HotDog_Business_Owned.text = "Owned: " + GameManager.HotDog_Amount.ToString("G50");
+        
     }
 
     #region GAMBLING
@@ -206,12 +208,15 @@ public class Game : MonoBehaviour
     #endregion
 
     #region BUSINESS 
-    public float HotDogPrice;
+    public float HotDogPrice = 300;
     public void Buy_HotDog()
     {
+        if (HotDogPrice <= GameManager.money)
+        {
         GameManager.HotDog_Amount++;
-        HotDogPrice -= GameManager.money;
+        GameManager.money -= HotDogPrice;
         GameManager.Bought_HotDog = true;
+        }
     }
 
 

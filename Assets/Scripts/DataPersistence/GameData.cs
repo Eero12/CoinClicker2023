@@ -37,7 +37,7 @@ public class GameData
     //tässä scriptissä ilmoitetaan pelin alussa voimassa olevat arvot.
 
     public GameData()
-    {
+    { 
         this.HotDog_Amount = 0;
         this.Bought_HotDog = false;
         this.clicks = 0;
