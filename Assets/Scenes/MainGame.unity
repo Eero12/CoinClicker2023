@@ -3673,7 +3673,7 @@ MonoBehaviour:
   MoneyCounter4: {fileID: 263943172}
   BetAmount: {fileID: 749046908}
   HotDog_Business_Owned: {fileID: 1368042992}
-  Lemonade_Business_Owned: {fileID: 0}
+  Lemonade_Business_Owned: {fileID: 1982534748}
   ShopCanvas: {fileID: 937073228}
   GamblingCanvas: {fileID: 127700177}
   CollectionCanvas: {fileID: 632825136}
