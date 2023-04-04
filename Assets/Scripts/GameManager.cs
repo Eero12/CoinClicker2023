@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public static int Gambling_game1_number2;
     public static bool Bought_HotDog;
     public static int HotDog_Amount;
+    public static bool Bought_Lemonade;
+    public static int Lemonade_Amount;
 
     public void LoadData(GameData data)
     {

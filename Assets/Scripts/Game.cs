@@ -16,6 +16,7 @@ public class Game : MonoBehaviour
     public TextMeshProUGUI MoneyCounter4;
     public TextMeshProUGUI BetAmount;
     public TextMeshProUGUI HotDog_Business_Owned;
+    public TextMeshProUGUI Lemonade_Business_Owned;
     public GameObject ShopCanvas;
     public GameObject GamblingCanvas;
     public GameObject CollectionCanvas;
@@ -60,6 +61,11 @@ public class Game : MonoBehaviour
             GameManager.money += GameManager.HotDog_Amount;
             LastAuto = Time.time + 1;
         }
+        if (GameManager.Bought_Lemonade && LastAuto <= Time.time)
+        {
+            GameManager.money += GameManager.Lemonade_Amount;
+            LastAuto = Time.time + 2;
+        }
         Clicks.text = "Clicks " + GameManager.Clicks.ToString("G50");
         MoneyCounter.text = "Money: " + GameManager.money.ToString("G50");
         MoneyCounter2.text = "Money: " + GameManager.money.ToString("G50"); 
@@ -67,7 +73,8 @@ public class Game : MonoBehaviour
         MoneyCounter4.text = "Money: " + GameManager.money.ToString("G50"); 
         BetAmount.text = "Bet: " + GameManager.Gambling_bet.ToString("G50");
         HotDog_Business_Owned.text = "Owned: " + GameManager.HotDog_Amount.ToString("G50");
-        
+        Lemonade_Business_Owned.text = "Owned: " + GameManager.Lemonade_Amount.ToString("G50");
+
     }
 
     #region GAMBLING
@@ -208,6 +215,7 @@ public class Game : MonoBehaviour
     #endregion
 
     #region BUSINESS 
+    public float LemonadePrice = 150;
     public float HotDogPrice = 300;
     public void Buy_HotDog()
     {
@@ -219,7 +227,15 @@ public class Game : MonoBehaviour
         }
     }
 
-
+    public void Buy_LemonadeStand()
+    {
+        if (LemonadePrice <= GameManager.money)
+        {
+            GameManager.Lemonade_Amount++;
+            GameManager.money -= LemonadePrice;
+            GameManager.Bought_Lemonade = true;
+        }
+    }
 
     #endregion
 
