@@ -22,7 +22,8 @@ public class Game : MonoBehaviour
     public GameObject GamblingCanvas;
     public GameObject CollectionCanvas;
     public GameObject CollectiblesCanvas;
-    public GameObject BusinesssCanvas;
+    public GameObject BusinessCanvas;
+    public GameObject CheckBoxCanvas;
     public TextMeshProUGUI Clicks;
     public AudioSource ClickSound;
     public CriticalClick crit;
@@ -206,7 +207,8 @@ public class Game : MonoBehaviour
         ShopCanvas.SetActive(false);
         GamblingCanvas.SetActive(false);
         CollectionCanvas.SetActive(false);
-        BusinesssCanvas.SetActive(false);
+        BusinessCanvas.SetActive(false);
+        CheckBoxCanvas.SetActive(false);
     }
     public void BackToShop()
     {
@@ -228,7 +230,11 @@ public class Game : MonoBehaviour
     }
     public void  Business()
     {
-        BusinesssCanvas.SetActive(true);
+        BusinessCanvas.SetActive(true);
+    }
+    public void CheckBox()
+    {
+        CheckBoxCanvas.SetActive(true);
     }
     #endregion
 
