@@ -212,8 +212,7 @@ public class Game : MonoBehaviour
     }
     public void BackToShop()
     {
-
-        CollectiblesCanvas.SetActive(false);
+        CollectionCanvas.SetActive(false);
     }
     public void Shop()
     {
