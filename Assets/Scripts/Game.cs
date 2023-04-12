@@ -250,7 +250,7 @@ public class Game : MonoBehaviour
         GameManager.Bought_HotDog = true;
         }
     }
-
+   
     public void Buy_LemonadeStand()
     {
         if (LemonadePrice <= GameManager.money)
