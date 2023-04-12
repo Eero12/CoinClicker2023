@@ -168,6 +168,7 @@ public class Game : MonoBehaviour
     #endregion
 
     #region BUYUPGRADES
+
     public void BuyUpgrade1()
     {        
         if(GameManager.money >= GameManager.Upgrade1) 

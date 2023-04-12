@@ -23,7 +23,7 @@ public class Shop : MonoBehaviour
         {
             Upgrade2Counter.text = "" + GameManager.Upgrade2;
         }      
-        Upgrade1Counter.text = "" + GameManager.Upgrade1;
+        Upgrade1Counter.text =  "" + GameManager.Upgrade1;
 
     }
 }
