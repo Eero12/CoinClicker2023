@@ -1,32 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 using System;
 using System.IO;
 
 public class FileDataHandler
 {
-    private string dataDirPath = "";
     private string dataFileName = "";
 
-    public FileDataHandler(string dataDirPath, string dataFileName)
+    public FileDataHandler(string dataFileName)
     {
-        this.dataDirPath = dataDirPath;
         this.dataFileName = dataFileName;
     }
 
     public GameData Load()
     {
-        //use path.combine to account for different OS's having different path separators
-        //string fullPath = Path.Combine(dataDirPath, dataFileName);
-        //string fullPath = dataDirPath + "/" + dataFileName;
-        string fullPath = dataDirPath + Path.DirectorySeparatorChar + dataFileName;
+        string fullPath = Path.Combine(Application.persistentDataPath, dataFileName);
         GameData loadedData = null;
         if (File.Exists(fullPath))
         {
             try
             {
-                //Load the serialized data from the file
                 string dataToLoad = "";
                 using (FileStream stream = new FileStream(fullPath, FileMode.Open))
                 {
@@ -36,7 +29,6 @@ public class FileDataHandler
                     }
                 }
 
-                // deserialize the data from json back into the C# object
                 loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
 
             }
@@ -47,32 +39,31 @@ public class FileDataHandler
         }
         return loadedData;
     }
+
     public void Save(GameData data)
     {
-        //use path.combine to account for different OS's having different path separators
-        //string fullPath = Path.Combine(dataDirPath, dataFileName);
-        //string fullPath = dataDirPath + "/" + dataFileName;
-        string fullPath = dataDirPath + Path.DirectorySeparatorChar + dataFileName;
+        if (!Permission.HasUserAuthorizedPermission(Permission.ExternalStorageWrite))
+        {
+            Permission.RequestUserPermission(Permission.ExternalStorageWrite);
+        }
+
+        string fullPath = Path.Combine(Application.persistentDataPath, dataFileName);
         try
         {
-            // Create the directory the fie will be written to if it doesn't already exist
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
 
-            // serialize the C# game data object into Json
-            string dataTostore = JsonUtility.ToJson(data, true);
+            string dataToStore = JsonUtility.ToJson(data, true);
 
-            // write the serialized data to the file
-            using (FileStream stream = new FileStream(fullPath, FileMode.Create))
+            using (FileStream stream = new FileStream(fullPath, FileMode.Create, FileAccess.Write))
             {
                 using (StreamWriter writer = new StreamWriter(stream))
                 {
-                    writer.Write(dataTostore);
+                    writer.Write(dataToStore);
                 }
             }
         }
         catch (Exception e)
         {
-
             Debug.LogError("Error occured when trying to save data to file: " + fullPath + "\n" + e);
         }
     }
