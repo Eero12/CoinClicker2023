@@ -18,7 +18,9 @@ public class FileDataHandler
     public GameData Load()
     {
         //use path.combine to account for different OS's having different path separators
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        //string fullPath = Path.Combine(dataDirPath, dataFileName);
+        //string fullPath = dataDirPath + "/" + dataFileName;
+        string fullPath = dataDirPath + Path.DirectorySeparatorChar + dataFileName;
         GameData loadedData = null;
         if (File.Exists(fullPath))
         {
@@ -48,7 +50,9 @@ public class FileDataHandler
     public void Save(GameData data)
     {
         //use path.combine to account for different OS's having different path separators
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
+        //string fullPath = Path.Combine(dataDirPath, dataFileName);
+        //string fullPath = dataDirPath + "/" + dataFileName;
+        string fullPath = dataDirPath + Path.DirectorySeparatorChar + dataFileName;
         try
         {
             // Create the directory the fie will be written to if it doesn't already exist
