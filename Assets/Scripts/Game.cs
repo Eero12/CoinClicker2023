@@ -11,18 +11,12 @@ public class Game : MonoBehaviour
 {
     public Animator Animation;
     public TextMeshProUGUI MoneyCounter;
-    public TextMeshProUGUI MoneyCounter2;
-    public TextMeshProUGUI MoneyCounter3;
-    public TextMeshProUGUI MoneyCounter4;
     public TextMeshProUGUI BetAmount;
     public TextMeshProUGUI HotDog_Business_Owned;
     public TextMeshProUGUI Lemonade_Business_Owned;
     public TextMeshProUGUI Year_Counter;
-    public GameObject ShopCanvas;
-    public GameObject GamblingCanvas;
     public GameObject CollectionCanvas;
     public GameObject CollectiblesCanvas;
-    public GameObject BusinessCanvas;
     public GameObject CheckBoxCanvas;
     public TextMeshProUGUI Clicks;
     public AudioSource ClickSound;
@@ -69,9 +63,6 @@ public class Game : MonoBehaviour
         #endregion
         Clicks.text = "Clicks " + GameManager.Clicks.ToString("G50");
         MoneyCounter.text = "" + GameManager.money.ToString("G50");
-        MoneyCounter2.text = "Money: " + GameManager.money.ToString("G50"); 
-        MoneyCounter3.text = "Money: " + GameManager.money.ToString("G50");
-        MoneyCounter4.text = "Money: " + GameManager.money.ToString("G50"); 
         BetAmount.text = "Bet: " + GameManager.Gambling_bet.ToString("G50");
         HotDog_Business_Owned.text = "Owned: " + GameManager.HotDog_Amount.ToString("G50");
         Lemonade_Business_Owned.text = "Owned: " + GameManager.Lemonade_Amount.ToString("G50");
@@ -205,33 +196,15 @@ public class Game : MonoBehaviour
     }
     public void BackToGame()
     {
-        ShopCanvas.SetActive(false);
-        GamblingCanvas.SetActive(false);
-        CollectionCanvas.SetActive(false);
-        BusinessCanvas.SetActive(false);
+        CollectiblesCanvas.SetActive(false);
         CheckBoxCanvas.SetActive(false);
     }
-    public void BackToShop()
-    {
-        CollectionCanvas.SetActive(false);
-    }
-    public void Shop()
-    {
-        ShopCanvas.SetActive(true);
-    } public void Gambling()
-    {
-        GamblingCanvas.SetActive(true);
-    }public void Collection()
-    {
-        CollectionCanvas.SetActive(true);
-    }public void Collectibles()
+    
+    public void Collectibles()
     {
         CollectiblesCanvas.SetActive(true);
     }
-    public void  Business()
-    {
-        BusinessCanvas.SetActive(true);
-    }
+
     public void CheckBox()
     {
         CheckBoxCanvas.SetActive(true);
