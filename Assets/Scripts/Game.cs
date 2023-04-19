@@ -15,9 +15,9 @@ public class Game : MonoBehaviour
     public TextMeshProUGUI HotDog_Business_Owned;
     public TextMeshProUGUI Lemonade_Business_Owned;
     public TextMeshProUGUI Year_Counter;
-    public GameObject CollectionCanvas;
     public GameObject CollectiblesCanvas;
     public GameObject CheckBoxCanvas;
+    public GameObject BusinessInfoPanel;
     public TextMeshProUGUI Clicks;
     public AudioSource ClickSound;
     public CriticalClick crit;
@@ -64,8 +64,8 @@ public class Game : MonoBehaviour
         Clicks.text = "Clicks " + GameManager.Clicks.ToString("G50");
         MoneyCounter.text = "" + GameManager.money.ToString("G50");
         BetAmount.text = "Bet: " + GameManager.Gambling_bet.ToString("G50");
-        HotDog_Business_Owned.text = "Owned: " + GameManager.HotDog_Amount.ToString("G50");
-        Lemonade_Business_Owned.text = "Owned: " + GameManager.Lemonade_Amount.ToString("G50");
+        HotDog_Business_Owned.text = "HotDog Stands Owned: " + GameManager.HotDog_Amount.ToString("G50");
+        Lemonade_Business_Owned.text = "Lemonade Stands Owned: " + GameManager.Lemonade_Amount.ToString("G50");
         Year_Counter.text = GameManager.years + "." + GameManager.months + "." + GameManager.days;
 
         #region YEARSYSTEM
@@ -198,13 +198,17 @@ public class Game : MonoBehaviour
     {
         CollectiblesCanvas.SetActive(false);
         CheckBoxCanvas.SetActive(false);
+        BusinessInfoPanel.SetActive(false);
     }
     
     public void Collectibles()
     {
         CollectiblesCanvas.SetActive(true);
     }
-
+    public void BusinessPanel()
+    {
+        BusinessInfoPanel.SetActive(true);
+    }
     public void CheckBox()
     {
         CheckBoxCanvas.SetActive(true);
