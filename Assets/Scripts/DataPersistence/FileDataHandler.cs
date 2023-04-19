@@ -1,3 +1,4 @@
+using UnityEngine.Android;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,30 @@ public class FileDataHandler
 {
     private string dataDirPath = "";
     private string dataFileName = "";
+    private bool hasWritePermission = false;
 
     public FileDataHandler(string dataDirPath, string dataFileName)
     {
         this.dataDirPath = dataDirPath;
         this.dataFileName = dataFileName;
+    }
+
+    public void RequestWritePermission()
+    {
+        // Request permission to write to external storage
+        if (!hasWritePermission)
+        {
+            Permission.RequestUserPermission(Permission.ExternalStorageWrite);
+        }
+    }
+
+    public void CheckWritePermissionStatus()
+    {
+        // Check if the app has permission to write to external storage
+        if (Permission.HasUserAuthorizedPermission(Permission.ExternalStorageWrite))
+        {
+            hasWritePermission = true;
+        }
     }
 
     public GameData Load()
@@ -46,6 +66,7 @@ public class FileDataHandler
         }
         return loadedData;
     }
+
     public void Save(GameData data)
     {
         //use path.combine to account for different OS's having different path separators
@@ -70,7 +91,6 @@ public class FileDataHandler
         }
         catch (Exception e)
         {
-
             Debug.LogError("Error occured when trying to save data to file: " + fullPath + "\n" + e);
         }
     }
