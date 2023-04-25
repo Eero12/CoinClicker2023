@@ -177,6 +177,7 @@ public class Game : MonoBehaviour
             GameManager.Range100 -= 5;
             GameManager.money -= GameManager.Upgrade2;
             GameManager.Upgrade2 += 100;
+
             if (GameManager.Range100 <= 0)
             {
                 GameManager.Range100 = 0;
