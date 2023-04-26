@@ -15,20 +15,20 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void Awake()
     {
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         if (instance != null)
         {
             Debug.LogError("Found more than one Data Persistance Manager in the scene.");
         }
         instance = this;
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        LoadGame();
+
+        Debug.Log(Application.persistentDataPath);
     }
 
     private void Start()
     {
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
-        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        LoadGame();
-
-        Debug.Log(Application.persistentDataPath);
     }
 
     public void NewGame()
@@ -80,8 +80,8 @@ public class DataPersistenceManager : MonoBehaviour
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
-        IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
-
+        IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<GameManager>();
+        Debug.Log(FindObjectsOfType<GameManager>().Count());
         return new List<IDataPersistence>(dataPersistenceObjects);
     }
 }
