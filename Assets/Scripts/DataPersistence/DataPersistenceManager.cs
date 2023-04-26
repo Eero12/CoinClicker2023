@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class DataPersistenceManager : MonoBehaviour
 {
@@ -70,6 +71,11 @@ public class DataPersistenceManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         SaveGame();
+    }
+    private void OnApplicationPause(bool pause)
+    {
+        SaveGame();
+        
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
