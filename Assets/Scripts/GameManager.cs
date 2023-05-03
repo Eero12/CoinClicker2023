@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour, IDataPersistence
 {
+    public static string playername;
     public static float Upgrade1;
     public static float Upgrade2;
     public static bool Upgrade2Max;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
+        playername = data.playername;
         days = data.days;
         months = data.months;
         years = data.years;
@@ -71,6 +73,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
+        data.playername = playername;
         data.days = days;
         data.months = months;
         data.years = years;

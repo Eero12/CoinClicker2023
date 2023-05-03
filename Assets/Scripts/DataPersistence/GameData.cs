@@ -7,6 +7,7 @@ using TMPro;
 
 public class GameData
 {
+    public string playername;
     public bool Bought_HotDog;
     public bool Bought_Lemonade;
     public int HotDog_Amount;
@@ -40,6 +41,7 @@ public class GameData
 
     public GameData()
     {
+        this.playername = "Arkkienkeli";
         this.days = 1;
         this.months = 1;
         this.years = 2023;
