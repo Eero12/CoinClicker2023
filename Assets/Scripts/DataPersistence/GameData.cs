@@ -41,7 +41,7 @@ public class GameData
 
     public GameData()
     {
-        this.playername = "Arkkienkeli";
+        this.playername = "Eero";
         this.days = 1;
         this.months = 1;
         this.years = 2023;
