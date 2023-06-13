@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public static int Gambling_game1_number1;
     public static int Gambling_game1_number2;
     public static bool Bought_HotDog;
+    public static bool Bought_Car;
+    public static int Car_Amount;
     public static int HotDog_Amount;
     public static bool Bought_Lemonade;
     public static int Lemonade_Amount;
@@ -41,9 +43,14 @@ public class GameManager : MonoBehaviour, IDataPersistence
         days = data.days;
         months = data.months;
         years = data.years;
+        Car_Amount = data.Car_Amount;
         Lemonade_Amount = data.Lemonade_Amount;
         HotDog_Amount = data.HotDog_Amount;
         Bought_HotDog = data.Bought_HotDog;
+
+        Bought_Car = data.Bought_Car;
+        Car_Amount = data.Car_Amount;
+
         Gambling_bet = 0;
         Gambling_div2 = 2;
         Gambling_div3 = 3;
@@ -77,6 +84,10 @@ public class GameManager : MonoBehaviour, IDataPersistence
         data.days = days;
         data.months = months;
         data.years = years;
+
+        data.Car_Amount = Car_Amount;
+        data.Bought_Car = Bought_Car;
+
         data.Bought_Lemonade = Bought_Lemonade;
         data.Lemonade_Amount = Lemonade_Amount;
         data.HotDog_Amount = HotDog_Amount;

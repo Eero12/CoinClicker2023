@@ -14,7 +14,11 @@ public class Game : MonoBehaviour
     public TextMeshProUGUI BetAmount;
     public TextMeshProUGUI HotDog_Business_Owned;
     public TextMeshProUGUI Lemonade_Business_Owned;
+    public TextMeshProUGUI CarDealer_Owned;
     public TextMeshProUGUI Year_Counter;
+    public TextMeshProUGUI LemonadePrice_Counter;
+    public TextMeshProUGUI HotDogPrice_Counter;
+    public TextMeshProUGUI CarDealerPrice_Counter;
     public GameObject CollectiblesCanvas;
     public GameObject CheckBoxCanvas;
     public GameObject BusinessInfoPanel;
@@ -24,6 +28,7 @@ public class Game : MonoBehaviour
     public GameObject critSpawn;
     private float LastAuto_HotDog;
     private float LastAuto_Lemonade;
+    private float LastAuto_Car;
     private float LastAuto_Years;
 
     public void Increment()
@@ -57,15 +62,26 @@ public class Game : MonoBehaviour
         }
         else if (GameManager.Bought_Lemonade && LastAuto_Lemonade <= Time.time)
         {
-            GameManager.money += GameManager.Lemonade_Amount;
-            LastAuto_Lemonade = Time.time + 1;
+            GameManager.money += GameManager.Lemonade_Amount + 2;
+            LastAuto_Lemonade = Time.time + 2;
         }
+        else if (GameManager.Bought_Car && LastAuto_Car <= Time.time)
+        {
+            GameManager.money += GameManager.Car_Amount + 3;
+            LastAuto_Car = Time.time + 3;
+        }
+
+
         #endregion
+        LemonadePrice_Counter.text = LemonadePrice.ToString("G50");
+        HotDogPrice_Counter.text = HotDogPrice.ToString("G50");
+        CarDealerPrice_Counter.text = CarBusinessPrice.ToString("G50"); 
         Clicks.text = "Clicks " + GameManager.Clicks.ToString("G50");
         MoneyCounter.text = "" + GameManager.money.ToString("G50");
         BetAmount.text = "Bet: " + GameManager.Gambling_bet.ToString("G50");
         HotDog_Business_Owned.text = "HotDog Stands Owned: " + GameManager.HotDog_Amount.ToString("G50");
         Lemonade_Business_Owned.text = "Lemonade Stands Owned: " + GameManager.Lemonade_Amount.ToString("G50");
+        CarDealer_Owned.text = "CarDealers Owned: " + GameManager.Car_Amount.ToString("G50");
         Year_Counter.text = GameManager.years + "." + GameManager.months + "." + GameManager.days;
 
         #region YEARSYSTEM
@@ -219,6 +235,7 @@ public class Game : MonoBehaviour
     #region BUSINESS 
     public float LemonadePrice = 150;
     public float HotDogPrice = 300;
+    public float CarBusinessPrice = 300;
     public void Buy_HotDog()
     {
         if (HotDogPrice <= GameManager.money)
@@ -236,6 +253,17 @@ public class Game : MonoBehaviour
             GameManager.Lemonade_Amount++;
             GameManager.money -= LemonadePrice;
             GameManager.Bought_Lemonade = true;
+        }
+    }
+
+    public void Buy_CarBusiness()
+    {
+        if (CarBusinessPrice <= GameManager.money)
+        {
+            GameManager.Car_Amount++;
+            GameManager.money -= CarBusinessPrice;
+            GameManager.Bought_Car = true;
+
         }
     }
 

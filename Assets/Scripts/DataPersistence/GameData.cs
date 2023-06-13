@@ -12,6 +12,10 @@ public class GameData
     public bool Bought_Lemonade;
     public int HotDog_Amount;
     public int Lemonade_Amount;
+
+    public bool Bought_Car;
+    public int Car_Amount;
+
     public float clicks;
     public float money;
     public bool Upgrade2Max;
@@ -49,6 +53,8 @@ public class GameData
         this.Bought_Lemonade = false;
         this.HotDog_Amount = 0;
         this.Bought_HotDog = false;
+        this.Bought_Car = false;
+        this.Car_Amount = 0;
         this.clicks = 0;
         this.money = 0;
         this.Upgrade2Max = false;
